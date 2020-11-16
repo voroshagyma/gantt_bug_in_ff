@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+    <link href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css" rel="stylesheet">
+
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            border: none;
+            overflow: hidden;
+            color: rgb(33, 33, 33);
+            font-family: "Segoe UI", wf_segoe-ui_normal, helvetica, arial, sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            text-size-adjust: none;
+            user-select: none;
+        }
+
+        .host {
+            display: flex;
+            flex-direction: row;
+            padding: 0px;
+            margin: 0px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container1 {
+            width: 100%;
+            display: flex;
+            flex: 1;
+        }
+
+        .container2 {
+            width: 100%;
+            overflow: scroll;
+        }
+
+        #gantt_here {
+            width: 100%;
+            height: 100%;
+        }
+
+        .buttons {
+            z-index: 100;
+            display: flex;
+        }
+
+        .misc {
+            visibility: visible;
+            height: 890px;
+            display: none;
+            top: 26px;
+            left: 198px;
+            max-height: 276px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="misc"></div>
+    <div class="host">
+        <div class="container1">
+            <div class="container2">
+                <div class="buttons">
+                    <button>one</button>
+                    <button>second</button>
+                </div>
+                <div id="gantt_here" style='width:100%; height:100%;'></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        const data =
+            [
+                {
+                    "id": 1,
+                    "text": "Project1",
+                    "type": "project",
+                    "open": true,
+                    "start_date": "02-06-2018 00:00",
+                    "duration": 1648,
+                    "end_date": "06-12-2022 00:00",
+                    "parent": 0
+                },
+                {
+                    "id": 2,
+                    "start_date": "02-06-2018 00:00",
+                    "text": "Task 2",
+                    "duration": 8,
+                    "parent": 1,
+                    "end_date": "10-06-2018 00:00"
+                },
+                {
+                    "id": 3,
+                    "start_date": "10-06-2018 00:00",
+                    "text": "Task 3",
+                    "duration": 8,
+                    "end_date": "18-06-2018 00:00"
+                },
+                {
+                    "id": 4,
+                    "start_date": "18-06-2018 00:00",
+                    "text": "Task 4",
+                    "duration": 8,
+                    "parent": 1,
+                    "end_date": "26-06-2018 00:00"
+                },
+                {
+                    "id": 5,
+                    "start_date": "26-06-2018 00:00",
+                    "text": "Task 5",
+                    "duration": 8,
+                    "parent": 1,
+                    "end_date": "04-07-2018 00:00"
+                },
+                {
+                    "id": 6,
+                    "start_date": "04-07-2018 00:00",
+                    "text": "Task 6",
+                    "duration": 8,
+                    "open": true,
+                    "end_date": "12-07-2018 00:00"
+                },
+                {
+                    "id": 7,
+                    "start_date": "12-07-2018 00:00",
+                    "text": "Task 7",
+                    "duration": 8,
+                    "parent": 6,
+                    "end_date": "20-07-2018 00:00"
+                },
+                {
+                    "id": 8,
+                    "start_date": "20-07-2018 00:00",
+                    "text": "Task 8",
+                    "duration": 8,
+                    "parent": 6,
+                    "end_date": "28-07-2018 00:00"
+                }
+
+            ];
+
+
+        gantt.init("gantt_here");
+        gantt.parse({ tasks: data });
+
+    </script>
+</body>
